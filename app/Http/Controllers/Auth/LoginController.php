@@ -44,13 +44,24 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        //obtengo el tipo de usuario
         $tipoRol = TipoUsuario::where('tipoUser_id', '=' ,Auth()->user()->tipoUser_id)->get();
-
+        //coloco el tipo de usuario como rol en una session con todos los datos de USER
         Session::put($tipoRol[0]->nombre,Auth()->user());
         
+        
+      /*   $prueba =  Session::get('Admin');
+        dd($prueba); */
 
-        $prueba =  Session::get('Admin');
-        dd($prueba);
+    }
 
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        Session::flush();
+        Session::regenerate();
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect('/');
     }
 }
