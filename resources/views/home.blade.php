@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+{{Auth()->user()->tipoUser_id}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
