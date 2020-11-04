@@ -18,7 +18,7 @@ class CreateTipoEventosTable extends Migration
             $table->string('nombre');
             $table->string('color');
             $table->string('permisos');
-            $table->boolean('activo');
+            $table->boolean('activo')->default(1);
             $table->timestamps();
         });
     }

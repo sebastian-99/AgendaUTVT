@@ -15,7 +15,7 @@ class AddUserIdToEventos extends Migration
     {
         Schema::table('eventos', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->after('periodicidad');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

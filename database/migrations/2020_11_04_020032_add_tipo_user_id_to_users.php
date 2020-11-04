@@ -14,7 +14,7 @@ class AddTipoUserIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('tipoUser_id')->after('detalle');
+            $table->unsignedBigInteger('tipoUser_id')->nullable($value = true)->after('detalle');
             $table->foreign('tipoUser_id')->references('tipoUser_id')->on('tipouser');  
         });
     }

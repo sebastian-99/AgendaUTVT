@@ -15,7 +15,7 @@ class AddUserReprestanteIdToInvitados extends Migration
     {
         Schema::table('invitados', function (Blueprint $table) {
             $table->unsignedBigInteger('representanteUser_id')->nullable($value = true)->after('invitado_id');
-            $table->foreign('representanteUser_id')->references('user_id')->on('users');
+            $table->foreign('representanteUser_id')->references('id')->on('users');
         });
     }
 

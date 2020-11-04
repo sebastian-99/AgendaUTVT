@@ -16,7 +16,7 @@ class CreateTipoUserTable extends Migration
         Schema::create('tipouser', function (Blueprint $table) {
             $table->bigIncrements('tipoUser_id');
             $table->string('nombre');
-            $table->boolean('activo');
+            $table->boolean('activo')->default(1);
             $table->timestamps();
         });
     }

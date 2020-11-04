@@ -26,7 +26,7 @@ class CreateEventosTable extends Migration
             $table->string('importancia');
             $table->integer('notificacionCantidad');
             $table->string('periodicidad');
-            $table->boolean('activo');
+            $table->boolean('activo')->default(1);
             $table->timestamps();
         });
     }
