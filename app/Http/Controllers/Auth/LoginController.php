@@ -45,11 +45,15 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
+        $request->validate([
+            'email' => 'required|email|regex:/^([\da-z_\-.]+)@([\da-z\-.]+)\.([a-z\-.]{1,})$/i'
+        ]);
+        
         //coloco el tipo de usuario como rol en una session con todos los datos de USER
         Session::put(Auth()->user()->role->nombre,Auth()->user());
     }
 
-    public function logout(Request $request)
+    public function logout(Request $request)    
     {
         $this->guard()->logout();
         Session::flush();
