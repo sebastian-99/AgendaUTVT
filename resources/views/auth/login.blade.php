@@ -34,42 +34,101 @@ body {
  </style>
 </head>
 <body>
+
+
 <div class="container">
   <div class="abs-center">
     <form method="POST" action="{{route('loginAuth')}}" class="border border-success p-3 form" >
     @csrf
+    <div class="row">
+      <div class="col">
+        <center>
+         <img src="https://drive.google.com/uc?export=view&id=1bXHMhWEjacmf5XNKi_O-_3uexu7Ggvxf" style="width: 200px">
+         </center>
+      </div>
+  </div>
     <div class="box box-solid bg-black">
         <div class="box-header with-border bg-black text-center">
             <h5 class="box-title">Sistema Agenda Electrónica Rectoría<br>UTVT</h5>
         </div>
-        <ul>
-            INICIAR SESIÓN
-        </ul>
-        <br>
     </div>
-      <div class="form-group">
-        <label for="email">Correo</label>
-        <input type="email" name="email" id="email" class="form-control">
-      </>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" class="form-control">
+
+    <b>INICIAR SESIÓN</b><br><br>
+    <div class="form-group has-feedback">
+        <input  class="form-control" placeholder="Email" name="email" id="email"  value="{{ old('email') }}" required>
+        <span class="ion ion-email form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
+        <span class="ion ion-locked form-control-feedback"></span>
       </div>
       @foreach ($errors->all() as $error)
         <div class="alert alert-warning">
-           <h7>{{ $error }}</h7>
+           {{ $error }}
         </div>
-        @endforeach
+      @endforeach
 
       <center>
-      <button type="submit" class="btn btn-primary">ENTRAR</button><br><br>
-      <a href="{{route('register')}}">
-          <button type="button" class="btn btn-danger">REGISTRA UN USUARIO TEMPORAL HAMSTER</button>
-       </a>
-      </center>
+      <button type="submit" class="btn btn-info btn-block margin-top-10">ENTRAR</button>
 
+
+      <div class="row mx-auto my-3">
+          <div class="col-12 text-center">
+              <a data-toggle="modal" href="#modalLoad" disabled="true">¿Olvidaste tu contraseña?</a>
+          </div>
+      </div>     
+      <div style="background-color: #EAE7E7; border-radius:10px; height: 110px;display: flex;justify-content: center;align-content: center;flex-direction: column;">
+        UNIVERSIDAD TECNOLÓGICA DEL VALLE DE TOLUCA.<br>
+        ¡Siempre Cuervos!
+      </div>
+     <!--  <a href="{{route('register')}}">
+          <button type="button" class="btn btn-danger">REGISTRA UN USUARIO TEMPORAL HAMSTER</button>
+       </a> -->
+      </center>
     </form>
   </div>
 </div>
+
+
+<!-- Modal: modalCart -->
+<div class="modal fade" id="modalLoad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true" disabled="true">
+  <div class="modal-dialog" role="document">
+   
+    <div class="modal-content">
+      <div class="modal-body tex-justify">
+    <center>
+    <div class="login-logo">
+    <img src="https://drive.google.com/uc?export=view&id=1bXHMhWEjacmf5XNKi_O-_3uexu7Ggvxf" style="width: 250px">
+    </div>
+    </center>
+<p><b>Ingresa por favor tu Email</b></p>
+<br>
+<p>Te enviaremos tu contraseña temporal con la que puedes acceder a tu cuenta.</p>
+<br>
+<p>Te recomendamos cambiar tu contraseña una vez que accedas a la plataforma</p>
+<div class="form-element">
+<div class="form-group has-feedback">
+
+   <form action="#" method = "POST">
+      {{csrf_field()}}   
+        <div class="form-group has-feedback">
+        <input  class="form-control" placeholder="Email" name="email">
+        <span class="ion ion-email form-control-feedback"></span>
+      </div>
+      </div>
+      </div>
+      <!--Footer-->
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
+        <button class="btn btn-outline-primary">Recuperar</button>
+      </div>
+    
+    </form>
+    </div>
+  </div>
+
+<!-- Modal: modalCart -->
 </body>
 </html>
