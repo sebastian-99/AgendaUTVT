@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Session;
 use App\TipoUsuario;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -44,15 +45,8 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        //obtengo el tipo de usuario
-        $tipoRol = TipoUsuario::where('tipoUser_id', '=' ,Auth()->user()->tipoUser_id)->get();
         //coloco el tipo de usuario como rol en una session con todos los datos de USER
-        Session::put($tipoRol[0]->nombre,Auth()->user());
-        
-        
-      /*   $prueba =  Session::get('Admin');
-        dd($prueba); */
-
+        Session::put(Auth()->user()->role->nombre,Auth()->user());
     }
 
     public function logout(Request $request)
