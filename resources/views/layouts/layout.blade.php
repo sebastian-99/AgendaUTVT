@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/images/favicon.ico">
 
-    <title>Crypto Admin - Dashboard</title>
+    <title>Agenda - UTVT</title>
     
 	<!-- Bootstrap 4.0-->
 	<link rel="stylesheet" href="/assets/vendor_components/bootstrap/dist/css/bootstrap.css">
