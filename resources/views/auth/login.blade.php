@@ -113,7 +113,7 @@ body {
    <form action="#" method = "POST">
       {{csrf_field()}}   
         <div class="form-group has-feedback">
-        <input  class="form-control" placeholder="Email o matricula" name="email">
+        <input  class="form-control" placeholder="Email" name="email">
         <span class="ion ion-email form-control-feedback"></span>
       </div>
       </div>
